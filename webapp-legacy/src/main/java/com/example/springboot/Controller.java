@@ -6,9 +6,13 @@ import com.thoughtworks.xstream.XStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 
 @RestController
 public class Controller {
+	final static Logger logger = LogManager.getLogger(Controller.class);
 
 	public static interface Contact {
 
@@ -46,6 +50,7 @@ public class Controller {
 		xstream.ignoreUnknownElements();
 		Contact c = (Contact)xstream.fromXML(serializedContact);
 		System.out.println(c.getFirstName());
+		logger.info("hello");
 		return "Contact created!";
 	}
 
