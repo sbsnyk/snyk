@@ -50,7 +50,7 @@ public class Controller {
 		xstream.ignoreUnknownElements();
 		Contact c = (Contact)xstream.fromXML(serializedContact);
 		System.out.println(c.getFirstName());
-		logger.info("hello");
+		logger.info(serializedContact);
 		return "Contact created!";
 	}
 
